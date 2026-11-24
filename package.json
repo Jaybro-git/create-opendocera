@@ -1,6 +1,6 @@
 {
   "name": "create-opendocera",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Create a new OpenDocera documentation site: Next.js, MDX and one config file.",
   "type": "module",
   "bin": {

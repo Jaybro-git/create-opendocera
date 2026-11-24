@@ -78,8 +78,9 @@ function run(cmd, args, cwd) {
   });
 }
 
-const git = (args, cwd) =>
-  spawnSync("git", args, { cwd, stdio: "ignore", shell: process.platform === "win32" }).status === 0;
+// git is a real executable on every platform, so it runs without a shell.
+// (A shell on Windows would split the commit message into separate words.)
+const git = (args, cwd) => spawnSync("git", args, { cwd, stdio: "ignore" }).status === 0;
 
 function bail(message) {
   p.cancel(message);
@@ -228,7 +229,8 @@ async function main() {
     if (git(["init", "-b", "main"], target) || git(["init"], target)) {
       git(["add", "-A"], target);
       const committed = git(["commit", "-m", "Initial commit from create-opendocera"], target);
-      p.log.success(committed ? "Initialized a git repository" : "Initialized a git repository (no commit: set your git name and email)");
+      if (committed) p.log.success("Initialized a git repository");
+      else p.log.warn("Initialized a git repository, but the first commit failed. Check `git config user.name` and `user.email`, then commit yourself.");
     }
   }
 
