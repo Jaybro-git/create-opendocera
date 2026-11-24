@@ -1,0 +1,41 @@
+{
+  "name": "create-opendocera",
+  "version": "0.1.0",
+  "description": "Create a new OpenDocera documentation site: Next.js, MDX and one config file.",
+  "type": "module",
+  "bin": {
+    "create-opendocera": "index.mjs"
+  },
+  "files": [
+    "index.mjs",
+    "lib"
+  ],
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=20.9"
+  },
+  "keywords": [
+    "opendocera",
+    "documentation",
+    "docs",
+    "nextjs",
+    "mdx",
+    "template",
+    "create"
+  ],
+  "homepage": "https://github.com/Jaybro-git/open-docera",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jaybro-git/create-opendocera.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Jaybro-git/create-opendocera/issues"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@clack/prompts": "^1.9.0",
+    "giget": "^3.3.1"
+  }
+}
